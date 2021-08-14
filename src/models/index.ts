@@ -1,17 +1,12 @@
-import React from 'react';
+import { FormField } from './fields';
 
 export interface FormJson {
   title?: string;
-  items: Array<Field>;
+  items: Array<FormField>;
   controls: Array<FormButton>;
 }
-
-export type Field = {
-  type: 'number' | 'text' | 'textarea' | 'checkbox' | 'date' | 'radio';
-};
 
 export type FormButton = {
   label: string;
   type: 'submit' | 'button' | 'reset';
-  handler?: (e: React.SyntheticEvent<any>) => void;
 };

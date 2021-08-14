@@ -1,22 +1,28 @@
 import React, { ReactElement } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { AppLinks } from '../../urls';
 
 import './Navigation.scss';
 
-interface Props {}
-
-function Navigation({}: Props): ReactElement {
+function Navigation(): ReactElement {
   return (
     <div className="Navigation">
-      <Link className="Navigation__Tab" to={AppLinks.Config}>
+      <NavLink
+        className="Navigation__Tab"
+        activeClassName="Navigation__Tab_active"
+        to={AppLinks.Config}
+      >
         Config
-      </Link>
-      <Link className="Navigation__Tab" to={AppLinks.Result}>
+      </NavLink>
+      <NavLink
+        className="Navigation__Tab"
+        activeClassName="Navigation__Tab_active"
+        to={AppLinks.Result}
+      >
         Result
-      </Link>
+      </NavLink>
     </div>
   );
 }
 
-export default Navigation;
+export default React.memo(Navigation);

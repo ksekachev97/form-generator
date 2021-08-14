@@ -2,11 +2,20 @@ import React, { ReactElement } from 'react';
 import { IResultProps } from './types';
 
 import './Result.scss';
+import { FormJson } from '../../models';
 
-function Result({}: IResultProps): ReactElement {
+function Result({ formConfig }: IResultProps): ReactElement {
+  const buildFormFromJson = (config: FormJson) => {
+    return <form></form>;
+  };
+
   return (
     <div className="Result">
-      <h1>i am result</h1>
+      {formConfig ? (
+        buildFormFromJson(formConfig)
+      ) : (
+        <p className="Result__NoJsonText">No valid JSON was provided.</p>
+      )}
     </div>
   );
 }

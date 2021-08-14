@@ -1,4 +1,24 @@
 .Navigation {
-  &-Tab {
+  &__Tab {
+    color: inherit;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border: 1px solid black;
+    border-bottom: none;
+
+    display: inline-block;
+    text-decoration: none;
+    max-width: 10rem;
+    padding: 0.5rem 5rem;
+
+    &_active {
+      background-color: #d5d5d5;
+      font-weight: bold;
+      pointer-events: none;
+    }
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
   }
 }
