@@ -1,6 +1,32 @@
+@import '../../styles/colors.scss';
+
 .Result {
-  &__NoJsonText {
-    color: crimson;
+  &-Error {
+    color: $error-color;
     font-weight: bold;
+  }
+}
+
+.GeneratedForm {
+  &-Title {
+    font-size: 1.5rem;
+  }
+  &-Fieldset {
+    border: none;
+  }
+  &-Label {
+    margin-right: 2rem;
+    vertical-align: bottom;
+    text-align: end;
+  }
+  &-Field {
+  }
+  &-Controls {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  &-Button {
+    padding: 0 1em;
+    margin: 1em;
   }
 }

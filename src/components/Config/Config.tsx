@@ -1,40 +1,42 @@
 import React, { ReactElement } from 'react';
+import { cn } from '@bem-react/classname';
 import { IConfigProps } from './types';
 
 import './Config.scss';
 
-function Config({ handleJson }: IConfigProps): ReactElement {
-  const [json, setJson] = React.useState<string>('{}');
-  const [error, setError] = React.useState<string | null>();
+import useJsonInput from '../../hooks/useJsonInput';
+import { useHistory } from 'react-router';
+import { AppLinks } from '../../urls';
 
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setJson(e.target.value);
-  };
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+function Config({ handleConfig, initialValue }: IConfigProps): ReactElement {
+  const cnConfig = cn('Config');
+  const history = useHistory();
+
+  const onSuccess = () => {
+    history.push(AppLinks.Result);
   };
 
-  const handlePrettify = () => {
-    try {
-      setJson(JSON.stringify(JSON.parse(json), null, 4));
-      setError(null);
-    } catch (error) {
-      setError(error.message);
-    }
-  };
+  const [value, handleChange, handlePrettify, handleSubmit, error] =
+    useJsonInput(handleConfig, JSON.stringify(initialValue), onSuccess);
 
   return (
-    <form onSubmit={handleSubmit} className="Config">
+    <form onSubmit={handleSubmit} className={cnConfig()}>
       <textarea
         name="config"
-        value={json}
+        value={value}
         onChange={handleChange}
-        className="Config__Textarea"
+        className={cnConfig('Textarea')}
       />
-      <span className="Config__Error">{error}</span>
-      <button onClick={handlePrettify}>Prettify</button>
-      <div className="Config__Controls">
-        <button type="submit" className="Config__Button" disabled={!error}>
+      <p className={cnConfig('Status', { error: Boolean(error) })}>{error}</p>
+      <button onClick={handlePrettify} type="button">
+        Prettify
+      </button>
+      <div className={cnConfig('Controls')}>
+        <button
+          type="submit"
+          className={cnConfig('Button')}
+          disabled={Boolean(error)}
+        >
           Apply
         </button>
       </div>

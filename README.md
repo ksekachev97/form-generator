@@ -17,3 +17,26 @@ Allowed types of fields:
 
 Also, app allow you to set up Title, count and text of the Buttons, e.g. (Ok, Cancel, Submit)
 
+## Example JSON
+```JSON
+{
+  "title": "Form",
+  "items": [
+    {
+      "label":"Text Input",
+      "type": "text",
+      "name": "textinput"
+    }
+  ],
+  "controls": [
+    {
+      "label":"Ok",
+      "type": "submit",
+    },
+    {
+      "label":"Cancel",
+      "type": "reset",
+    }
+  ]
+}
+```
