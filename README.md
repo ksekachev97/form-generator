@@ -23,20 +23,55 @@ Also, app allow you to set up Title, count and text of the Buttons, e.g. (Ok, Ca
   "title": "Form",
   "items": [
     {
-      "label":"Text Input",
+      "label": "Text Input",
       "type": "text",
-      "name": "textinput"
+      "name": "textinput",
+      "value": "value"
+    },
+    {
+      "label": "Number Input",
+      "type": "number",
+      "name": "number",
+      "value": 1
+    },
+    {
+      "label": "Checkbox",
+      "type": "checkbox",
+      "name": "checkbox"
+    },
+    {
+      "label": "Date",
+      "type": "date",
+      "name": "date"
+    },
+    {
+      "label": "Radio",
+      "type": "radio",
+      "name": "radio1",
+      "value": "1",
+      "values": [
+        { "label": "Value1", "value": "1" },
+        { "label": "Value 2", "value": "2" }
+      ]
+    },
+    {
+      "label": "Textarea",
+      "type": "textarea",
+      "name": "textarea",
+      "rows": 4,
+      "cols": 10
     }
   ],
   "controls": [
     {
-      "label":"Ok",
+      "label": "Ok",
       "type": "submit"
     },
     {
-      "label":"Cancel",
+      "label": "Cancel",
       "type": "reset"
     }
   ]
 }
+
 ```

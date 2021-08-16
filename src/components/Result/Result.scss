@@ -13,13 +13,14 @@
   }
   &-Fieldset {
     border: none;
+    display: flex;
+    align-items: flex-end;
   }
   &-Label {
-    margin-right: 2rem;
-    vertical-align: bottom;
-    text-align: end;
-  }
-  &-Field {
+    display: inline-flex;
+    flex: 1 0 auto;
+    max-width: 7rem;
+    padding-right: 1rem;
   }
   &-Controls {
     display: flex;

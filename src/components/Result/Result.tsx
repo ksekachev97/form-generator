@@ -1,12 +1,18 @@
 import React, { ReactElement } from 'react';
-import { Field, Form, FormRenderProps } from 'react-final-form';
+import { Form, FormRenderProps } from 'react-final-form';
+import { cn } from '@bem-react/classname';
 
 import './Result.scss';
 
 import { IResultProps } from './types';
+import { cnGeneratedForm } from './constants';
+import RadioField from './Fields/RadioField/RadioField';
 import { FormButton } from '../../models';
 import { FormField } from '../../models/fields';
-import { cn } from '@bem-react/classname';
+import InputField from './Fields/InputField/InputField';
+import NumberField from './Fields/NumberField/NumberField';
+import TextareaField from './Fields/TextAreaField/TextareaField';
+import CheckboxField from './Fields/CheckboxField/CheckboxField';
 
 function Result({ formConfig }: IResultProps): ReactElement {
   const cnResult = cn('Result');
@@ -16,39 +22,44 @@ function Result({ formConfig }: IResultProps): ReactElement {
   };
 
   const buildForm = (props: FormRenderProps) => {
-    const cnGeneratedForm = cn('GeneratedForm');
     const { title, items, controls } = formConfig || {};
 
+    const renderFieldForType = (field: FormField) => {
+      switch (field.type) {
+        case 'radio':
+          return <RadioField {...field} />;
+        case 'checkbox':
+          return <CheckboxField {...field} />;
+        case 'textarea':
+          return <TextareaField {...field} />;
+        case 'number':
+          return <NumberField {...field} />;
+        default:
+          return <InputField {...field} />;
+      }
+    };
+
     return (
-      <form
-        className={cnGeneratedForm()}
-        onSubmit={props.handleSubmit}
-        name="generated-form"
-      >
+      <form className={cnGeneratedForm()} onSubmit={props.handleSubmit}>
         <h1 className={cnGeneratedForm('Title')}>{title}</h1>
         {items?.map((field: FormField) => (
           <fieldset className={cnGeneratedForm('Fieldset')} key={field.name}>
             <label htmlFor={field.name} className={cnGeneratedForm('Label')}>
               {field.label}
             </label>
-            <Field
-              className={cnGeneratedForm('Field')}
-              name={field.name}
-              component={field.type === 'textarea' ? 'textarea' : 'input'}
-              value={field.value}
-            ></Field>
+            {renderFieldForType(field)}
           </fieldset>
         ))}
         <div className={cnGeneratedForm('Controls')}>
           {controls?.map((control: FormButton) => (
-            <input
+            <button
               name={control.label}
               type={control.type}
               key={control.label}
-              value={control.label}
-              form="generated-form"
               className={cnGeneratedForm('Button')}
-            ></input>
+            >
+              {control.label}
+            </button>
           ))}
         </div>
       </form>
