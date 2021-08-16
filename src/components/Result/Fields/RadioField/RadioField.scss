@@ -1,5 +1,10 @@
 .GeneratedForm {
   &-RadioField {
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
+
+  &-RadioFieldDot {
     margin-right: 0.5rem;
   }
 
