@@ -31,11 +31,11 @@ Also, app allow you to set up Title, count and text of the Buttons, e.g. (Ok, Ca
   "controls": [
     {
       "label":"Ok",
-      "type": "submit",
+      "type": "submit"
     },
     {
       "label":"Cancel",
-      "type": "reset",
+      "type": "reset"
     }
   ]
 }
