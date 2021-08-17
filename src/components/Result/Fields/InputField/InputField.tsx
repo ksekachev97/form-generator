@@ -10,7 +10,7 @@ function InputField(props: InputFormField): ReactElement {
     <Field
       name={props.name}
       component="input"
-      defaultValue={props.value}
+      initialValue={props.value}
       type={props.type}
       readOnly={props.readonly}
       required={props.required}
@@ -19,4 +19,4 @@ function InputField(props: InputFormField): ReactElement {
   );
 }
 
-export default InputField;
+export default React.memo(InputField);

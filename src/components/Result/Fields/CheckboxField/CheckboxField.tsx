@@ -11,7 +11,7 @@ function CheckboxField(props: CheckboxFieldType): ReactElement {
     <Field
       name={props.name}
       component="input"
-      defaultValue={props.value}
+      initialValue={props.value}
       type="checkbox"
       readOnly={props.readonly}
       required={props.required}
@@ -20,4 +20,4 @@ function CheckboxField(props: CheckboxFieldType): ReactElement {
   );
 }
 
-export default CheckboxField;
+export default React.memo(CheckboxField);

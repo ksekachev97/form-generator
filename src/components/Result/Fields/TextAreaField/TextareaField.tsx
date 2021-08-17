@@ -11,7 +11,7 @@ function TextareaField(props: TextareaFieldType): ReactElement {
     <Field
       name={props.name}
       component="textarea"
-      defaultValue={props.value}
+      initialValue={props.value}
       readOnly={props.readonly}
       required={props.required}
       cols={props.cols}
@@ -21,4 +21,4 @@ function TextareaField(props: TextareaFieldType): ReactElement {
   );
 }
 
-export default TextareaField;
+export default React.memo(TextareaField);

@@ -42,7 +42,8 @@ Also, app allow you to set up Title, count and text of the Buttons, e.g. (Ok, Ca
     {
       "label": "Date",
       "type": "date",
-      "name": "date"
+      "name": "date",
+      "value": "2021-08-17"
     },
     {
       "label": "Radio",
@@ -50,7 +51,7 @@ Also, app allow you to set up Title, count and text of the Buttons, e.g. (Ok, Ca
       "name": "radio1",
       "value": "1",
       "values": [
-        { "label": "Value1", "value": "1" },
+        { "label": "Value 1", "value": "1" },
         { "label": "Value 2", "value": "2" }
       ]
     },
@@ -68,7 +69,7 @@ Also, app allow you to set up Title, count and text of the Buttons, e.g. (Ok, Ca
       "type": "submit"
     },
     {
-      "label": "Cancel",
+      "label": "Reset",
       "type": "reset"
     }
   ]

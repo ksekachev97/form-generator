@@ -10,7 +10,7 @@ function NumberField(props: NumberFieldType): ReactElement {
     <Field
       name={props.name}
       component="input"
-      defaultValue={props.value}
+      initialValue={props.value}
       type="number"
       readOnly={props.readonly}
       required={props.required}
@@ -22,4 +22,4 @@ function NumberField(props: NumberFieldType): ReactElement {
   );
 }
 
-export default NumberField;
+export default React.memo(NumberField);
