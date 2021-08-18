@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { Field } from 'react-final-form';
-import { NumberField as NumberFieldType } from '../../../../models/fields';
+import { NumberFieldType } from '../../../../models/fields';
 import { cnGeneratedForm } from '../../constants';
 
 import './NumberField.scss';

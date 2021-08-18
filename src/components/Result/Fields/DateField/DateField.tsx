@@ -1,22 +1,25 @@
 import React, { ReactElement } from 'react';
 import { Field } from 'react-final-form';
-import { InputFormField } from '../../../../models/fields';
+import { DateFieldType } from '../../../../models/fields';
 import { cnGeneratedForm } from '../../constants';
 
-import './InputField.scss';
+import './DateField.scss';
 
-function InputField(props: InputFormField): ReactElement {
+function DateField(props: DateFieldType): ReactElement {
   return (
     <Field
       name={props.name}
       component="input"
       initialValue={props.value}
-      type={props.type}
+      type="date"
       readOnly={props.readonly}
       required={props.required}
-      className={cnGeneratedForm('InputField')}
+      className={cnGeneratedForm('DateField')}
+      step={props.step}
+      min={props.min}
+      max={props.max}
     />
   );
 }
 
-export default React.memo(InputField);
+export default React.memo(DateField);

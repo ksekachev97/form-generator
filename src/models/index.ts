@@ -1,12 +1,12 @@
-import { FormField } from './fields';
+import { FormFieldType } from './fields';
 
 export interface FormJson {
   title?: string;
-  items: Array<FormField>;
-  controls: Array<FormButton>;
+  items: Array<FormFieldType>;
+  controls: Array<FormButtonType>;
 }
 
-export type FormButton = {
+export type FormButtonType = {
   label: string;
   type: 'submit' | 'button' | 'reset';
 };

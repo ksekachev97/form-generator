@@ -1,6 +1,7 @@
 import React, { ChangeEvent, MouseEvent } from 'react';
 import { FormJson } from '../models';
 import { parseJson } from '../utils/parseJson';
+import { validateDataForErrors } from '../utils/validateConfig';
 
 function useJsonInput(
   configHandler: (config: FormJson) => void,
@@ -32,8 +33,13 @@ function useJsonInput(
     e.preventDefault();
     handleError(() => {
       const config: FormJson = parseJson(value);
-      configHandler(config);
-      onSuccess && onSuccess();
+      const errors = validate(config);
+      if (!errors) {
+        configHandler(config);
+        onSuccess && onSuccess();
+      } else {
+        setError(errors);
+      }
     });
   };
 
@@ -42,6 +48,17 @@ function useJsonInput(
       func();
     } catch (error) {
       setError(error.message);
+    }
+  };
+
+  const validate = (config: FormJson) => {
+    const errors: string[] | undefined = validateDataForErrors(config);
+
+    if (!errors) {
+      return false;
+    } else {
+      const errorString = errors.join(' OR ');
+      return `Validation error: ${errorString}`;
     }
   };
 

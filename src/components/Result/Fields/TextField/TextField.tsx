@@ -1,23 +1,22 @@
 import React, { ReactElement } from 'react';
 import { Field } from 'react-final-form';
-
-import { CheckboxFieldType } from '../../../../models/fields';
+import { TextFieldType } from '../../../../models/fields';
 import { cnGeneratedForm } from '../../constants';
 
-import './CheckboxField.scss';
+import './TextField.scss';
 
-function CheckboxField(props: CheckboxFieldType): ReactElement {
+function TextField(props: TextFieldType): ReactElement {
   return (
     <Field
       name={props.name}
       component="input"
       initialValue={props.value}
-      type="checkbox"
+      type={props.type}
       readOnly={props.readonly}
       required={props.required}
-      className={cnGeneratedForm('CheckboxField')}
+      className={cnGeneratedForm('TextField')}
     />
   );
 }
 
-export default React.memo(CheckboxField);
+export default React.memo(TextField);

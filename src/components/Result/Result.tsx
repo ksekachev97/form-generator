@@ -6,13 +6,16 @@ import './Result.scss';
 
 import { IResultProps } from './types';
 import { cnGeneratedForm } from './constants';
-import RadioField from './Fields/RadioField/RadioField';
-import { FormButton } from '../../models';
-import { FormField } from '../../models/fields';
-import InputField from './Fields/InputField/InputField';
-import NumberField from './Fields/NumberField/NumberField';
-import TextareaField from './Fields/TextAreaField/TextareaField';
-import CheckboxField from './Fields/CheckboxField/CheckboxField';
+import { FormButtonType } from '../../models';
+import { FormFieldType } from '../../models/fields';
+import {
+  RadioField,
+  CheckboxField,
+  TextareaField,
+  NumberField,
+  DateField,
+  TextField,
+} from './Fields';
 
 function Result({ formConfig }: IResultProps): ReactElement {
   const cnResult = cn('Result');
@@ -22,7 +25,7 @@ function Result({ formConfig }: IResultProps): ReactElement {
     alert(JSON.stringify(values, null, 2));
   };
 
-  const renderFieldForType = (field: FormField) => {
+  const renderFieldForType = (field: FormFieldType) => {
     switch (field.type) {
       case 'radio':
         return <RadioField {...field} />;
@@ -32,8 +35,10 @@ function Result({ formConfig }: IResultProps): ReactElement {
         return <TextareaField {...field} />;
       case 'number':
         return <NumberField {...field} />;
+      case 'date':
+        return <DateField {...field} />;
       default:
-        return <InputField {...field} />;
+        return <TextField {...field} />;
     }
   };
 
@@ -47,7 +52,7 @@ function Result({ formConfig }: IResultProps): ReactElement {
         onReset={onFormReset}
       >
         <h1 className={cnGeneratedForm('Title')}>{title}</h1>
-        {items?.map((field: FormField) => (
+        {items?.map((field: FormFieldType) => (
           <fieldset className={cnGeneratedForm('Fieldset')} key={field.name}>
             <label htmlFor={field.name} className={cnGeneratedForm('Label')}>
               {field.label}
@@ -56,7 +61,7 @@ function Result({ formConfig }: IResultProps): ReactElement {
           </fieldset>
         ))}
         <div className={cnGeneratedForm('Controls')}>
-          {controls?.map((control: FormButton) => (
+          {controls?.map((control: FormButtonType) => (
             <button
               name={control.label}
               type={control.type}

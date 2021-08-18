@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { Field } from 'react-final-form';
 
-import { TextareaField as TextareaFieldType } from '../../../../models/fields';
+import { TextareaFieldType } from '../../../../models/fields';
 import { cnGeneratedForm } from '../../constants';
 
 import './TextareaField.scss';

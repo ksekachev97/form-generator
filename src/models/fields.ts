@@ -1,50 +1,55 @@
-export interface BaseFormField {
+export interface BaseFormFieldType {
   label: string;
   name: string;
+  type: string;
   value?: string;
   readonly?: boolean;
   required?: boolean;
 }
 
-export interface TextField extends BaseFormField {
+export interface TextFieldType extends BaseFormFieldType {
   type: 'text';
 }
 
-export interface NumberField extends BaseFormField {
+export interface NumberFieldType extends BaseFormFieldType {
   type: 'number';
   min?: number;
   max?: number;
   step?: number;
 }
 
-export interface DateField extends BaseFormField {
+export interface DateFieldType extends BaseFormFieldType {
   type: 'date';
+  min?: string;
+  max?: string;
+  step?: number;
 }
 
-export interface TextareaField extends BaseFormField {
+export interface TextareaFieldType extends BaseFormFieldType {
   type: 'textarea';
   rows?: number;
   cols?: number;
 }
 
-export interface CheckboxField extends BaseFormField {
+export interface CheckboxFieldType extends BaseFormFieldType {
   type: 'checkbox';
+  checked?: boolean;
 }
 
-export interface RadioField extends BaseFormField {
+export interface RadioFieldType extends BaseFormFieldType {
   type: 'radio';
-  values: Array<RadioFieldData>;
+  values: Array<RadioFieldDataType>;
 }
 
-export type RadioFieldData = {
+export type RadioFieldDataType = {
   label: string;
   value: string;
 };
 
-export type InputFormField = TextField | NumberField | DateField;
-
-export type FormField =
-  | InputFormField
-  | TextareaField
-  | CheckboxField
-  | RadioField;
+export type FormFieldType =
+  | TextFieldType
+  | NumberFieldType
+  | DateFieldType
+  | TextareaFieldType
+  | CheckboxFieldType
+  | RadioFieldType;

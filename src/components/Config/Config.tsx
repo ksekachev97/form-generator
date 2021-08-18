@@ -17,7 +17,11 @@ function Config({ handleConfig, initialValue }: IConfigProps): ReactElement {
   };
 
   const [value, handleChange, handlePrettify, handleSubmit, error] =
-    useJsonInput(handleConfig, JSON.stringify(initialValue), onSuccess);
+    useJsonInput(
+      handleConfig,
+      JSON.stringify(initialValue, null, 2),
+      onSuccess
+    );
 
   return (
     <form onSubmit={handleSubmit} className={cnConfig()}>
@@ -26,6 +30,7 @@ function Config({ handleConfig, initialValue }: IConfigProps): ReactElement {
         value={value}
         onChange={handleChange}
         className={cnConfig('Textarea')}
+        rows={20}
       />
       <p className={cnConfig('Status', { error: Boolean(error) })}>{error}</p>
       <button onClick={handlePrettify} type="button">

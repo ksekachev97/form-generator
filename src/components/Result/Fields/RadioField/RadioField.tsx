@@ -1,9 +1,6 @@
 import React from 'react';
 import { Field } from 'react-final-form';
-import {
-  RadioField as RadioFieldType,
-  RadioFieldData,
-} from '../../../../models/fields';
+import { RadioFieldType, RadioFieldDataType } from '../../../../models/fields';
 import { cnGeneratedForm } from '../../constants';
 
 import './RadioField.scss';
@@ -11,7 +8,7 @@ import './RadioField.scss';
 function RadioField(props: RadioFieldType) {
   return (
     <div className={cnGeneratedForm('RadioField')}>
-      {props.values.map((data: RadioFieldData) => (
+      {props.values.map((data: RadioFieldDataType) => (
         <label className={cnGeneratedForm('RadioFieldLabel')} key={data.value}>
           <Field
             className={cnGeneratedForm('RadioFieldDot')}
