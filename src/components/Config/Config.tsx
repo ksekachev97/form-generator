@@ -31,8 +31,14 @@ function Config({ handleConfig, initialValue }: IConfigProps): ReactElement {
         onChange={handleChange}
         className={cnConfig('Textarea')}
         rows={20}
+        data-testid="config-input"
       />
-      <p className={cnConfig('Status', { error: Boolean(error) })}>{error}</p>
+      <p
+        className={cnConfig('Status', { error: Boolean(error) })}
+        data-testid="error"
+      >
+        {error}
+      </p>
       <button onClick={handlePrettify} type="button">
         Prettify
       </button>
@@ -41,6 +47,7 @@ function Config({ handleConfig, initialValue }: IConfigProps): ReactElement {
           type="submit"
           className={cnConfig('Button')}
           disabled={Boolean(error)}
+          data-testid="submit-button"
         >
           Apply
         </button>

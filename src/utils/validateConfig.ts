@@ -30,8 +30,6 @@ export function validateDataForErrors(
   const isValid = validator(data);
 
   if (!isValid) {
-    console.log(validator.errors);
-
     return validator.errors
       ?.filter((error: ErrorObject) => error.params.passingSchemas !== null) //ignore notpassing schema errors
       .map((error: ErrorObject) => {
