@@ -20,8 +20,8 @@ Also, app allow you to set up Title, count and text of the Buttons, e.g. (Ok, Ca
 
 ## Example JSON
 
+> Fields "type", "name" and "label" are required for all types of items.
 ```JSON
-// fields "type", "name" and "label" are required for all types of items
 {
    "title":"Form",
    "items":[
