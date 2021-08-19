@@ -24,7 +24,7 @@ export const validJsonMock = JSON.stringify(
         value: 1,
       },
       {
-        label: 'Number Input',
+        label: 'Required',
         type: 'number',
         name: 'number2',
         required: true,
@@ -33,6 +33,7 @@ export const validJsonMock = JSON.stringify(
         label: 'Checkbox',
         type: 'checkbox',
         name: 'checkbox',
+        checked: false,
       },
       {
         label: 'Date',
@@ -46,8 +47,14 @@ export const validJsonMock = JSON.stringify(
         name: 'radio1',
         value: '1',
         values: [
-          { label: 'Value 1', value: '1' },
-          { label: 'Value 2', value: '2' },
+          {
+            label: 'Value 1',
+            value: '1',
+          },
+          {
+            label: 'Value 2',
+            value: '2',
+          },
         ],
       },
       {

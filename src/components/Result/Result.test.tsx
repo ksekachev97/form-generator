@@ -1,12 +1,6 @@
 import React from 'react';
 
-import {
-  render,
-  fireEvent,
-  screen,
-  RenderResult,
-  waitFor,
-} from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import { FormJson } from '../../models';
 import Result from './Result';
 
