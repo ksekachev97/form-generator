@@ -81,7 +81,9 @@ function Result({ formConfig }: IResultProps): ReactElement {
       {formConfig ? (
         <Form onSubmit={onFormSubmit} render={buildForm} />
       ) : (
-        <p className={cnResult('Error')}>No valid JSON was provided.</p>
+        <p className={cnResult('Error')} data-testid="error">
+          No valid JSON was provided.
+        </p>
       )}
     </div>
   );

@@ -8,5 +8,5 @@ export interface FormJson {
 
 export type FormButtonType = {
   label: string;
-  type: 'submit' | 'button' | 'reset';
+  type: 'submit' | 'reset';
 };

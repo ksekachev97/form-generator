@@ -12,6 +12,7 @@ function RadioField(props: RadioFieldType) {
         <label className={cnGeneratedForm('RadioFieldLabel')} key={data.value}>
           <Field
             className={cnGeneratedForm('RadioFieldDot')}
+            id={props.name}
             name={props.name}
             component="input"
             type="radio"

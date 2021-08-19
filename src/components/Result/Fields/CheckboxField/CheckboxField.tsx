@@ -9,6 +9,7 @@ import './CheckboxField.scss';
 function CheckboxField(props: CheckboxFieldType): ReactElement {
   return (
     <Field
+      id={props.name}
       name={props.name}
       component="input"
       initialValue={props.value}
@@ -16,6 +17,7 @@ function CheckboxField(props: CheckboxFieldType): ReactElement {
       readOnly={props.readonly}
       required={props.required}
       className={cnGeneratedForm('CheckboxField')}
+      checked={props.checked}
     />
   );
 }

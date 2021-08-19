@@ -7,6 +7,7 @@ export const TextFieldSchema: JSONSchemaType<TextFieldType> = {
   properties: {
     ...baseFieldSchema.properties,
     type: { const: 'text' },
+    placeholder: { type: 'string', nullable: true },
   },
   required: [...baseFieldSchema.required],
 };

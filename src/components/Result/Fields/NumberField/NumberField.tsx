@@ -8,6 +8,7 @@ import './NumberField.scss';
 function NumberField(props: NumberFieldType): ReactElement {
   return (
     <Field
+      id={props.name}
       name={props.name}
       component="input"
       initialValue={props.value}

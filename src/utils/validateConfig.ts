@@ -11,6 +11,7 @@ const schema: JSONSchemaType<FormJson> = {
     title: { type: 'string', nullable: true },
     items: {
       type: 'array',
+      uniqueItems: true,
       items: fieldSchema,
       minItems: 1,
     },

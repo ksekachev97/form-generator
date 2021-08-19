@@ -9,6 +9,7 @@ import './TextareaField.scss';
 function TextareaField(props: TextareaFieldType): ReactElement {
   return (
     <Field
+      id={props.name}
       name={props.name}
       component="textarea"
       initialValue={props.value}
@@ -16,6 +17,7 @@ function TextareaField(props: TextareaFieldType): ReactElement {
       required={props.required}
       cols={props.cols}
       rows={props.rows}
+      placeholder={props.placeholder}
       className={cnGeneratedForm('TextareaField')}
     />
   );

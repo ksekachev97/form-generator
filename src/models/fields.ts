@@ -9,6 +9,7 @@ export interface BaseFormFieldType {
 
 export interface TextFieldType extends BaseFormFieldType {
   type: 'text';
+  placeholder?: string;
 }
 
 export interface NumberFieldType extends BaseFormFieldType {
@@ -27,6 +28,7 @@ export interface DateFieldType extends BaseFormFieldType {
 
 export interface TextareaFieldType extends BaseFormFieldType {
   type: 'textarea';
+  placeholder: string;
   rows?: number;
   cols?: number;
 }

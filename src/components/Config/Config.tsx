@@ -1,12 +1,13 @@
 import React, { ReactElement } from 'react';
 import { cn } from '@bem-react/classname';
-import { IConfigProps } from './types';
+import { useHistory } from 'react-router';
 
 import './Config.scss';
 
+import { IConfigProps } from './types';
 import useJsonInput from '../../hooks/useJsonInput';
-import { useHistory } from 'react-router';
 import { AppLinks } from '../../urls';
+import { validJsonMock } from './mock';
 
 function Config({ handleConfig, initialValue }: IConfigProps): ReactElement {
   const cnConfig = cn('Config');
@@ -16,12 +17,23 @@ function Config({ handleConfig, initialValue }: IConfigProps): ReactElement {
     history.push(AppLinks.Result);
   };
 
-  const [value, handleChange, handlePrettify, handleSubmit, error] =
-    useJsonInput(
-      handleConfig,
-      JSON.stringify(initialValue, null, 2),
-      onSuccess
-    );
+  const [
+    value,
+    handleChange,
+    handlePrettify,
+    handleSubmit,
+    error,
+  ] = useJsonInput(
+    handleConfig,
+    JSON.stringify(initialValue, null, 2),
+    onSuccess
+  );
+
+  const handleAddValidJson = () => {
+    handleChange({
+      target: { value: validJsonMock },
+    } as React.ChangeEvent<HTMLTextAreaElement>);
+  };
 
   return (
     <form onSubmit={handleSubmit} className={cnConfig()}>
@@ -42,6 +54,16 @@ function Config({ handleConfig, initialValue }: IConfigProps): ReactElement {
       <button onClick={handlePrettify} type="button">
         Prettify
       </button>
+
+      <button
+        onClick={handleAddValidJson}
+        type="button"
+        style={{ marginLeft: '1rem' }}
+        title="only because this is the test task"
+      >
+        Set valid JSON
+      </button>
+
       <div className={cnConfig('Controls')}>
         <button
           type="submit"

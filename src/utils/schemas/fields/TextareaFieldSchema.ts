@@ -9,6 +9,7 @@ export const TextareaFieldSchema: JSONSchemaType<TextareaFieldType> = {
     type: { const: 'textarea' },
     rows: { type: 'integer', nullable: true },
     cols: { type: 'integer', nullable: true },
+    placeholder: { type: 'string', nullable: true },
   },
   required: [...baseFieldSchema.required],
 };

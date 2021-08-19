@@ -172,10 +172,10 @@ describe('Config component', () => {
       });
 
       it('if config have invalid value in item in "items" array', () => {
-        const invalidConfig: FormJson = {
+        const invalidConfig: FormJson = ({
           items: [{ label: 'l', type: '123', name: 'l' }],
           controls: [{ label: '1', type: 'submit' }],
-        } as unknown as FormJson;
+        } as unknown) as FormJson;
 
         const expectedError =
           'Validation error: /items/0/type must be equal to constant "checkbox"' +
@@ -189,13 +189,13 @@ describe('Config component', () => {
       });
 
       it('if config have wrong type value in "controls" array', () => {
-        const invalidConfig: FormJson = {
+        const invalidConfig: FormJson = ({
           items: [{ label: 'l', type: 'text', name: 'l' }],
           controls: [{ label: '', type: 'data' }],
-        } as unknown as FormJson;
+        } as unknown) as FormJson;
 
         const expectedError =
-          'Validation error: /controls/0/type must be equal to one of the allowed values: "submit","button","reset"';
+          'Validation error: /controls/0/type must be equal to one of the allowed values: "submit","reset"';
 
         testForValidation(invalidConfig, expectedError);
       });
