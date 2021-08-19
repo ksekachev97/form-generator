@@ -7,26 +7,26 @@ export const validJsonMock = JSON.stringify(
       {
         label: 'Text Input',
         type: 'text',
-        name: 'textinput',
+        name: 'textinput1',
         value: 'value',
       },
       {
         label: 'Readonly',
         type: 'text',
-        name: 'textinput',
+        name: 'textinput2',
         value: 'value',
         readonly: true,
       },
       {
         label: 'Number Input',
         type: 'number',
-        name: 'number',
+        name: 'number1',
         value: 1,
       },
       {
         label: 'Number Input',
         type: 'number',
-        name: 'number',
+        name: 'number2',
         required: true,
       },
       {

@@ -199,6 +199,21 @@ describe('Config component', () => {
 
         testForValidation(invalidConfig, expectedError);
       });
+
+      it('if config have duplicate name value in "items" array', () => {
+        const invalidConfig: FormJson = ({
+          items: [
+            { label: 'l1', type: 'text', name: 'l' },
+            { label: 'l2', type: 'text', name: 'l' },
+          ],
+          controls: [{ label: '', type: 'submit' }],
+        } as unknown) as FormJson;
+
+        const expectedError =
+          'Validation error: value "l" of field "name" is not unique!';
+
+        testForValidation(invalidConfig, expectedError);
+      });
     });
   });
 });

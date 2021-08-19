@@ -1,5 +1,6 @@
 import Ajv, { ValidateFunction, JSONSchemaType, ErrorObject } from 'ajv';
 import { FormJson } from '../models';
+import { FormFieldType } from '../models/fields';
 import { controlsSchema } from './schemas/ControlsSchema';
 import { fieldSchema } from './schemas/FormFieldSchema';
 
@@ -48,5 +49,23 @@ export function validateDataForErrors(
         return errorString;
       });
   }
+
+  const duplicateName = findDuplicateNames(data.items);
+  if (duplicateName) {
+    return [`value "${duplicateName}" of field "name" is not unique!`];
+  }
+
   return undefined;
 }
+
+const findDuplicateNames = (arr: Array<FormFieldType>): string | undefined => {
+  const temp = [];
+  for (let field in arr) {
+    if (temp.indexOf(arr[field].name) < 0) {
+      temp.push(arr[field].name);
+    } else {
+      return arr[field].name;
+    }
+  }
+  return undefined;
+};

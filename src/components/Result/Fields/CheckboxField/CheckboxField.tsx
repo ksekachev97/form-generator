@@ -12,7 +12,7 @@ function CheckboxField(props: CheckboxFieldType): ReactElement {
       id={props.name}
       name={props.name}
       component="input"
-      initialValue={props.value}
+      initialValue={props.value || props.checked}
       type="checkbox"
       readOnly={props.readonly}
       required={props.required}

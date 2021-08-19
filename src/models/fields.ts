@@ -28,7 +28,7 @@ export interface DateFieldType extends BaseFormFieldType {
 
 export interface TextareaFieldType extends BaseFormFieldType {
   type: 'textarea';
-  placeholder: string;
+  placeholder?: string;
   rows?: number;
   cols?: number;
 }
