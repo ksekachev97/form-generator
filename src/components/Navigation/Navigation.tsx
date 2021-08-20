@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
-import { AppLinks } from '../../urls';
+
+import { AppLinks } from '../../constants/urls';
 
 import './Navigation.scss';
 

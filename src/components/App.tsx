@@ -1,11 +1,13 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router';
-import { AppLinks } from '../urls';
+
+import './App.scss';
+
+import { AppLinks } from '../constants/urls';
 import Config from './Config/Config';
 import Navigation from './Navigation/Navigation';
 import Result from './Result/Result';
 
-import './App.scss';
 import { FormJson } from '../models';
 
 function App() {

@@ -6,11 +6,12 @@ import {
   screen,
   RenderResult,
 } from '@testing-library/react';
-import Config from './Config';
-import { FormJson } from '../../models';
 import { Router } from 'react-router';
 import { createMemoryHistory, MemoryHistory } from 'history';
-import { AppLinks } from '../../urls';
+
+import Config from './Config';
+import { FormJson } from '../../models';
+import { AppLinks } from '../../constants/urls';
 
 const insertText = (textElement: HTMLElement, value: string) => {
   fireEvent.change(textElement, { target: { value } });

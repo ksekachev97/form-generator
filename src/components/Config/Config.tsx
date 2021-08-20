@@ -6,7 +6,7 @@ import './Config.scss';
 
 import { IConfigProps } from './types';
 import useJsonInput from '../../hooks/useJsonInput';
-import { AppLinks } from '../../urls';
+import { AppLinks } from '../../constants/urls';
 import { validJsonMock } from './mock';
 
 function Config({ handleConfig, initialValue }: IConfigProps): ReactElement {
